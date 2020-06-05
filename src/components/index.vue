@@ -11,6 +11,12 @@
 			</div>
 		</div>
 		<div class="nav">
+			  <el-carousel height="500px" >
+			    <el-carousel-item v-for="(item,index) in list" :key="index">
+			      <img style="width:100%;height:100%;" :src="require('../assets/'+item+'.jpg')" >
+			    </el-carousel-item>
+			  </el-carousel>
+		
 		</div>
 		<div class="info">介绍信息</div>
 		<div class="nav2">
@@ -30,7 +36,11 @@
 	export default {
 		data() {
 			return {
-
+                list:[
+						'banner1'
+					,
+						'banner2'
+				]
 			}
 		},
 		methods: {
@@ -80,7 +90,7 @@
 		float: left;
 		list-style-type: none;
 		text-align: center;
-		width: 24%;
+		width: 25%;
 		height: 100%;
 	}
 	.header ul li:hover{
@@ -127,4 +137,17 @@
 		height: 500px;
 		background-color: #000000;
 	}
+	 .nav .el-carousel__container{
+		position: relative;
+		height:500px !important;
+		
+	}
+
+	  .el-carousel__item:nth-child(2n) {
+	    background-color: #99a9bf;
+	  }
+	  
+	  .el-carousel__item:nth-child(2n+1) {
+	    background-color: #d3dce6;
+	  }
 </style>
