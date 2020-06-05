@@ -7,11 +7,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Index from './components/index.vue'
+import Home from './components/Home.vue'
+
 export default {
   name: 'app',
   components: {
     HelloWorld,
-	Index
+	Index,
+	Home
   }
 }
 </script>

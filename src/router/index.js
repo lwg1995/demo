@@ -2,11 +2,16 @@ export default[
 	{
 		path:'/',
 		name:'index',
-		component:()=>import('@/components/index.vue')
+		component:()=>import('@/components/index')
 	},
 	{
-		path:'/HelloWorld',
-		name:'HelloWorld',
-		component:()=>import('@/components/HelloWorld.vue')
+	    path: '/:collection',
+	    name: 'index',
+	    component: () => import('@/components/index')
+	},
+	{
+	    path: '/:collection/:p',
+	    name: 'index',   
+	    component: () => import('@/components/index')
 	}
 ]
