@@ -1,4 +1,5 @@
 <template>
+	
 	<div class="main">
 		<div class="head">
 			<div class="header">
@@ -12,7 +13,8 @@
 			</div>
 		</div>
 		<div>
-			<component v-bind:is="currentTabComponent"></component>
+			<component v-bind:is="path"></component>
+			
 		</div>
 		
 	</div>
@@ -22,28 +24,31 @@
 import Home from './Home.vue';
 import HelloWorld from './HelloWorld.vue';
 	export default {
-		data() {
-			return {
-				currentTabComponent:'Home'
-			}
-		},
-		methods: {
-			current:function(currentTabComponent){
-				this.currentTabComponent = currentTabComponent
-				this.$router.push('/' + currentTabComponent);
-			}
-		},
-		created() {
-			
-		},
 		components:{
 			Home,
 			HelloWorld
-		}
+		},
+		data() {
+			return {
+				path:'Home'
+			}
+		},
+
+		methods: {
+			current(path){
+				this.path = path
+				this.$router.push('/${path}')
+				
+			},
+		},
+		created() {
+
+		},
+		
 	}
 </script>
 
-<style scoped>
+<style scope>
 	
 	#im {
 		position: absolute;
@@ -57,6 +62,8 @@ import HelloWorld from './HelloWorld.vue';
 	.head{
 		width: 100%;
 		margin: 0 auto;
+		display: inline-flex;
+		overflow: hidden;
 	}
 	.head {
 		height: 90px;
@@ -67,7 +74,7 @@ import HelloWorld from './HelloWorld.vue';
 	}
 	
 	.header {
-		width: 50%;
+		width: 51%;
 		height: 100%;
 		margin: auto;
 	}
@@ -83,12 +90,12 @@ import HelloWorld from './HelloWorld.vue';
 		list-style-type: none;
 		width: 20%;
 		height: 100%;
+		transition: 0.2s ease;
 	}
 	
 	.header ul li:hover {
-		background-color: #0074D9;
+		background-color: #4184D9;
 		color: white;
-		border-radius: 5px;
+		border-radius: 10px;
 	}
-	
 </style>

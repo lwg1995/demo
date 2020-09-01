@@ -3,7 +3,7 @@
 		<div class="nav">
 			<el-carousel :interval="3000" arrow="always" height="500px">
 				<el-carousel-item v-for="(item,index) in list" :key="index">
-					<img style="width:100%;height:100%;" :src="require('../assets/'+item+'.jpg')">
+					<img style="width:100%;height:100%;" :src="item.url">
 				</el-carousel-item>
 			</el-carousel>
 		</div>
@@ -36,8 +36,25 @@
 	export default {
 		name: 'Home',
 		props: {
-			msg: String,
-			list: ['banner1', 'banner2']
+		},
+		data(){
+			return {
+				msg: String,
+				list: [
+					{
+						url:require('../assets/banner1.jpg')
+					},
+					{
+						url:require('../assets/banner2.jpg')
+					}
+				]
+			}
+		},
+		methods:{
+			
+		},
+		created() {
+			
 		}
 	}
 </script>
