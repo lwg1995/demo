@@ -8,6 +8,7 @@
 					<li @click="current('HelloWorld')">介绍</li>
 					<li>案例</li>
 					<li>合作</li>
+					<li>合作</li>
 					<li>联系</li>
 				</ul>
 			</div>
@@ -49,6 +50,12 @@ import HelloWorld from './HelloWorld.vue';
 </script>
 
 <style scope>
+	
+	#im {
+		position: absolute;
+		width: 66px;
+	}
+
 	
 	#im {
 		position: absolute;
