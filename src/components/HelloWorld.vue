@@ -1,35 +1,44 @@
 <template>
 	<div class="box">
-		<div class="box-child">
-			1
-		</div>
-		<div class="box-child2">
-			2
-		</div>
-		<div class="box-child3">
-			3
-		</div>
-	</div>
+		<cinput @child="father" :ipt="pp"></cinput>
+      <div class="left">
+
+		  <p>这是子组件传过来的值:{{chid}}</p>
+	  </div>
+      <!-- <div class="center"></div> -->
+      <!-- <div class="right"></div> -->
+  </div>
 </template>
 <script>
+import Cinput from './Cinput.vue';
+
 	export default {
 		name: 'HelloWorld',
-		props: {
-			msg: String
+		props: [],
+		components:{
+			Cinput:Cinput
 		},
 		data() {
 			return {
-				
-
+				pp:{
+					p1:'父组件的值1',
+					p2:'父组件的值2',
+				},
+				chid:'',
+				val:this.$route.query.val
 			}
 		},
 		methods: {
-			
+			father(data){
+				this.chid = data
+			}
 		},
 		created() {
-		
+			
+		},
+		mounted(){
+			console.log(this.$route.query.val);
 		}
-
 	}
 </script>
 
@@ -41,6 +50,24 @@
 	}
 
 	.box {
+      display: flex;
+      height: 200px;
+    }
+    .left {
+      flex:1;
+      background-color: pink;
+	  padding:30px ;
+    }
+    .center {
+      flex: 0 0 600px;
+      background-color: yellow;
+    }
+    .right {
+      flex:1;
+      background-color: skyblue;
+    }
+
+	/* .box {
 		width: 100%;
 		background-color: pink;
 		display: flex;
@@ -52,7 +79,7 @@
 		height: 200px;
 		background-color: #A9A9A9;
 		margin: 10px;
-		order: <1>;
+		
 	}
 
 	.box-child2 {
@@ -60,7 +87,7 @@
 		height: 200px;
 		background-color: #A9A9A9;
 		margin: 10px;
-		order: <3>;
+		
 	}
 
 	.box-child3 {
@@ -68,6 +95,6 @@
 		height: 200px;
 		background-color: #A9A9A9;
 		margin: 10px;
-		order: <2>;
-	}
+		
+	} */
 </style>
